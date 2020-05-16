@@ -67,4 +67,6 @@ gem 'pry-byebug'
 gem "jquery-rails"
 gem 'devise'
 gem "jquery-rails"
+gem "haml-rails"
+
 
