@@ -1,0 +1,22 @@
+<%= form_with(model: pay, local: true) do |form| %>
+  <% if pay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pay.errors.count, "error") %> prohibited this pay from being saved:</h2>
+
+      <ul>
+      <% pay.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start_time：datetime %>
+    <%= form.text_field :start_time：datetime %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
