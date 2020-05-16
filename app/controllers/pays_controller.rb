@@ -69,6 +69,6 @@ class PaysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pay_params
-      params.require(:pay).permit(:start_time：datetime)
+      params.require(:pay).permit(:start_time,:price, :memo).merge(user_id: current_user.id)
     end
 end
