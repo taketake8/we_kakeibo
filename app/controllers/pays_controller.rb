@@ -4,7 +4,8 @@ class PaysController < ApplicationController
   # GET /pays
   # GET /pays.json
   def index
-    @pays = Pay.all
+    @pays = Pay.includes(:user)
+    @user = User.find_by(id: current_user.id)
   end
 
   # GET /pays/1
@@ -69,6 +70,6 @@ class PaysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pay_params
-      params.require(:pay).permit(:start_time：datetime)
+      params.require(:pay).permit(:start_time,:price, :memo).merge(user_id: current_user.id)
     end
 end

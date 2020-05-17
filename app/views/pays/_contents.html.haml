@@ -1,6 +1,14 @@
 .contents
   .contents__calendars
-    = month_calendar events: @pays do |date, pay|
+    = month_calendar events: @pays do |date, pays|
       = date.day
+      - array = []
+      - pays.each do |pay|
+        - if pay.user_id == current_user.id
+          - array << pay.price
+      .contents__calendars__sum-pay
+        - if array.sum < 0
+          = array.sum
 .side-bar
+
   

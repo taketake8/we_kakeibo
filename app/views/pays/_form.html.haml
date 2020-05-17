@@ -7,8 +7,13 @@
       %ul
         - pay.errors.full_messages.each do |message|
           %li= message
+
   .field
-    = form.label :start_time：datetime
-    = form.text_field :start_time：datetime
+    = form.date_select :start_time 
+    = form.label :金額 
+    = form.number_field :price ,max:-1
+    = form.label :メモ 
+    = form.text_field :memo 
+
   .actions
-    = form.submit
+    = form.submit :支出を入力する

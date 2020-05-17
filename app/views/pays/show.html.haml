@@ -1,7 +1,5 @@
 %p#notice= notice
 %p
-  %strong Start time：datetime:
-  = @pay.start_time：datetime
-= link_to 'Edit', edit_pay_path(@pay)
-|
-= link_to 'Back', pays_path
+  = @pay.start_time
+  = link_to '編集', edit_pay_path(@pay)
+= link_to '戻る', pays_path
