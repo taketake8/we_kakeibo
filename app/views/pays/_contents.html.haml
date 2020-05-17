@@ -9,6 +9,20 @@
       .contents__calendars__sum-pay
         - if array.sum < 0
           = array.sum
-.side-bar
-
-  
+  .side-bar
+    .side-bar__side-contents
+      %h1 1日の家計簿
+      = search_form_for @search do |f| 
+        -# <%= f.label :title_cont, 'タイトル' %>
+        -# <%= f.text_field :title_cont %>
+        -# <br />
+        = f.label :作成日
+        = f.date_select :start_time_eq, include_blank: true , start_year:Time.now.year
+        -# <%= f.date_select :created_at_lteq, include_blank: true %>
+        .side-bar__btn
+          = f.submit '検索する' 
+    .side-bar__pay
+      - @pays_days.each do |pay| 
+        = pay.price 
+        = pay.start_time.day
+        %br

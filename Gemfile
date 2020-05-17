@@ -68,5 +68,6 @@ gem "jquery-rails"
 gem 'devise'
 gem 'devise-i18n'
 gem "haml-rails"
+gem 'ransack'
 
 

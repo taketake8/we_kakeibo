@@ -6,6 +6,13 @@ class PaysController < ApplicationController
   def index
     @pays = Pay.includes(:user)
     @user = User.find_by(id: current_user.id)
+    @search = Pay.search(params[:q])
+    @pays_days = @search.result
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @pays_days }
+    end
   end
 
   # GET /pays/1
