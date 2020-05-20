@@ -1,3 +1,7 @@
-%h1 支出
-= render 'form', pay: @pay
-= link_to 'Back', pays_path
+= render "header" 
+.pay-new
+  .pay-new__contents-new
+    .pay-new__contents-new__content-new
+      %h1 支出を入力
+      = render 'form', pay: @pay
+      = link_to 'トップに戻る', pays_path

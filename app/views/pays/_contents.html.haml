@@ -21,12 +21,10 @@
         -# <%= f.date_select :created_at_lteq, include_blank: true %>
         .side-bar__btn
           = f.submit '検索する' ,class:"day_serch_btn"
-    #side-bar__pay
+    .side-bar__pay
       - if params[:q].present?
         - @pays_days.each do |pay_day| 
           - if pay_day.user_id == current_user.id
             = pay_day.price 
             = pay_day.start_time.day
             %br
-          
-

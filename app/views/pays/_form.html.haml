@@ -1,19 +1,27 @@
-= form_with(model: pay, local: true) do |form|
-  - if pay.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(pay.errors.count, "error")
-        prohibited this pay from being saved:
-      %ul
-        - pay.errors.full_messages.each do |message|
-          %li= message
+.pay-form
+  = form_with(model: pay, local: true) do |form|
+    - if pay.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(pay.errors.count, "エラー")
+          のため保存ができません:
+        %ul
+          - pay.errors.full_messages.each do |message|
+            %li= message
 
-  .field
-    = form.date_select :start_time 
-    = form.label :金額 
-    = form.number_field :price ,max:-1
-    = form.label :メモ 
-    = form.text_field :memo 
+    .pay-field
+      .pay-field__pay-name
+        = form.label :日付
+      .pay-field__pay-date 
+        = form.date_select :start_time 
+      .pay-field__pay-name
+        = form.label :金額 
+      .pay-field__pay-date
+        = form.number_field :price ,max:-1
+      .pay-field__pay-name
+        = form.label :メモ 
+      .pay-field__pay-date
+        = form.text_field :memo 
 
-  .actions
-    = form.submit :支出を入力する
+    .actions
+      = form.submit :支出を入力する

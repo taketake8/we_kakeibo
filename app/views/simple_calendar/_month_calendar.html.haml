@@ -4,7 +4,7 @@
     %span.calendar-title
       = t('date.month_names')[start_date.month]
       = start_date.year
-    = link_to t('simple_calendar.next', default: '次月'), calendar.url_for_next_view
+    = link_to t('simple_calendar', default: '次月'), calendar.url_for_next_view
   %table.table.table-striped
     %thead
       %tr
