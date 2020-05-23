@@ -6,10 +6,10 @@
   &__contents-new{
     border-radius: 50px;
     margin:0px auto ;
-    height: 50vh;
     width: 50vw;
     padding: 20px; 
-    background-color: #fff;    
+    background-color: #fff; 
+    position: relative;   
     &__content-new{
       h1{
         margin-bottom: 20px;
@@ -27,7 +27,6 @@
             letter-spacing: 1px;
             font-size: 40px;
             font-weight: 200;
-
           }
           &__pay-date{
             input{
@@ -43,18 +42,21 @@
               background-color: #fFF;
             }
           }
+          &__pay-date-memo{
+            textarea{
+              @include memo;
+            }            
+          }
         }
         .actions{
-
           margin: 20px auto;
           width: 50%;
-
           input{
             color: #fff;
             width: 100%;
             border: 1px solid #ccc;
             border-radius: 50px;
-            margin-top: 16px;
+            margin: 16px 0px 30px 0px;
             height: 70px;
             font-weight: 500;
             font-size: 25px;
@@ -62,6 +64,21 @@
           }
         }
       }   
-    }    
+    } 
+    &__back-btn{
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      height: 30px;
+      line-height: 30px;
+      width: 15%;
+      border-radius: 50px;
+      text-align: center;
+      background-color: #FF570D;
+      a{
+        display: block;
+        color: #fff;
+      }
+    }       
   }
 }

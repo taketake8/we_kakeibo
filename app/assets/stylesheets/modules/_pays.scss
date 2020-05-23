@@ -28,10 +28,11 @@
 }
 .contents{
   height: calc(100vh - 10vh);
+  width: 100%;
   display: flex;
   background-color: #FFFFCC;
   &__calendars{
-    padding: 20px; 
+    padding:40px 20px; 
     background-color: #fff;    
     .simple-calendar {
       height: 50vh;
@@ -108,8 +109,63 @@
 
       .has-events {}
     }
-    .side-bar{
-      width: 20vw;
+  }
+  &__side-bar{
+    padding:40px 20px;
+    width: 100%;
+    &__side-contents{
+      h1{
+        font-size: 30px;
+        text-align: center;
+      }
+      &__search-name{
+        font-size: 20px;
+      }
+      &__search-form{
+        select{
+          width: 30%;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          margin-top: 10px;
+          height: 50px;
+          background-color: #fFF;
+        }
+      }
+      &__search-btn{
+        margin: 10px auto;
+        width: 50%;
+        input{
+          cursor: pointer;
+          color: #fff;
+          width: 100%;
+          border: 1px solid #ccc;
+          border-radius: 50px;
+          margin-top: 16px;
+          height: 50px;
+          font-weight: 500;
+          background-color: rgba(33, 99, 221, 0.8);
+        }
+      }
+    }
+    &__search-results{
+      h2{
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      &__pay-results{
+        &__pay-result{
+          margin: 20px 0px;
+          border-bottom: 1px solid #ccc;
+          a{
+            color: black;
+          } 
+        }
+        &__pay-result :hover{
+          background-color: #fff;
+          color: red;
+        }
+      }
     }
   }
 }

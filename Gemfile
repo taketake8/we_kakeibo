@@ -69,5 +69,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem "haml-rails"
 gem 'ransack'
+gem 'font-awesome-sass', '~> 5.4.1' 
+
 
 

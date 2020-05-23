@@ -35,7 +35,7 @@ class PaysController < ApplicationController
 
     respond_to do |format|
       if @pay.save
-        format.html { redirect_to @pay, notice: 'Pay was successfully created.' }
+        format.html { redirect_to pays_path, notice: '保存ができました' }
         format.json { render :show, status: :created, location: @pay }
       else
         format.html { render :new }
