@@ -5,7 +5,6 @@ class PaysController < ApplicationController
   # GET /pays.json
   def index
     @pays = Pay.includes(:user)
-    @user = User.find_by(id: current_user.id)
     @search = Pay.search(params[:q])
     @pays_days = @search.result
     respond_to do |format|
@@ -49,7 +48,7 @@ class PaysController < ApplicationController
   def update
     respond_to do |format|
       if @pay.update(pay_params)
-        format.html { redirect_to @pay, notice: 'Pay was successfully updated.' }
+        format.html { redirect_to pays_path, notice: 'Pay was successfully updated.' }
         format.json { render :show, status: :ok, location: @pay }
       else
         format.html { render :edit }

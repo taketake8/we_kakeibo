@@ -27,7 +27,7 @@
   }
 }
 .contents{
-  height: calc(100vh - 10vh);
+  height: calc(100% - 10vh);
   width: 100%;
   display: flex;
   background-color: #FFFFCC;
@@ -35,7 +35,7 @@
     padding:40px 20px; 
     background-color: #fff;    
     .simple-calendar {
-      height: 50vh;
+      height: 50%;
       .calendar-heading{
         text-align: center;
         font-size: 30px;
@@ -86,7 +86,7 @@
       }
 
       .day {
-        height: 150px;
+        height: 100px;
       }
       .today {
         background: #FFFFC0
@@ -113,6 +113,7 @@
   &__side-bar{
     padding:40px 20px;
     width: 100%;
+    height: 100vh;
     &__side-contents{
       h1{
         font-size: 30px;
