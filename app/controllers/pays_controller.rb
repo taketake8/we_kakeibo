@@ -1,5 +1,8 @@
 class PaysController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_pay, only: [:show, :edit, :update, :destroy]
+  before_action :current_user_show, only: [:show,:edit,:update, :destroy]
+
 
   # GET /pays
   # GET /pays.json
@@ -76,5 +79,11 @@ class PaysController < ApplicationController
     # Only allow a list of trusted parameters through.
     def pay_params
       params.require(:pay).permit(:start_time,:price, :memo).merge(user_id: current_user.id)
+    end
+
+    def current_user_show
+      if current_user.id  != @pay.user_id
+        redirect_to root_path
+      end
     end
 end
