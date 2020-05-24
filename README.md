@@ -1,24 +1,35 @@
-# README
+# 概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://wekakeibo.herokuapp.com/
 
-Things you may want to cover:
+支出の記録のみのシンプルな家計簿です。
 
-* Ruby version
+最近は,　キャッシュレスが増え,現金のような手間をかけずに
+支払いができるようになった。便利である一方で現金感覚が
+身に付かない子供がいるというニュースを見て作成してみようと
+思いました。
 
-* System dependencies
+# テストアカウント
+メールアドレス：
+    test@test
+パスワード：
+    123456
 
-* Configuration
+ # 仕様
+- ruby 2.5.1
+- Rails 5.2.4.2
+- Postgresql
+- Heroku
 
-* Database creation
+# 主な機能
+- ユーザー登録、ログイン、ログアウト
+- 支払項目の作成、削除、編集
+- カレンダー機能
+- 検索機能(一日のみ)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#　今後実装したいこと
+- 一定期間の検索機能
+- 支払いカテゴリー追加
+- csv出力
+- viewの整理
+- 支払いの入力をjsを使用して動的(現金で支払っているような感覚)なものにする
