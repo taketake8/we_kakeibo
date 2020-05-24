@@ -1,7 +1,25 @@
-%p#notice= notice
-%p
-  %strong Start time：datetime:
-  = @pay.start_time：datetime
-= link_to 'Edit', edit_pay_path(@pay)
-|
-= link_to 'Back', pays_path
+= render "header" 
+.pay-new
+  .pay-new__contents-new
+    .pay-new__contents-new__content-new
+      .pay-show
+        %h1 詳細
+        .pay-show__show-pay-name
+          %p 日付:
+        .pay-show__show-pay-contents
+          = @pay.start_time.strftime("%Y年 %m月 %d日")
+        .pay-show__show-pay-name
+          %p 金額:
+        .pay-show__show-pay-contents
+          = "#{@pay.price}円"
+        .pay-show__show-pay-name
+          %p メモ:
+        .pay-show__show-pay-memo
+          = simple_format(@pay.memo)
+        .pay-show__link-show-pay
+          .pay-show__link-show-pay__pay-edit
+            = link_to '編集', edit_pay_path(@pay)
+          .pay-show__link-show-pay__pay-delete
+            = link_to '削除', pay_path(@pay), method: :delete
+    .pay-new__contents-new__back-btn
+      = link_to '戻る', :back

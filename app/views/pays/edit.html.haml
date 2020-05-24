@@ -1,5 +1,8 @@
-%h1 Editing Pay
-= render 'form', pay: @pay
-= link_to 'Show', @pay
-|
-= link_to 'Back', pays_path
+= render "header" 
+.pay-new
+  .pay-new__contents-new
+    .pay-new__contents-new__content-new
+      %h1 支出を編集
+      = render 'form', pay: @pay
+    .pay-new__contents-new__back-btn
+      = link_to '戻る', :back

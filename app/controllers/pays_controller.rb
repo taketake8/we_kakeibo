@@ -4,7 +4,13 @@ class PaysController < ApplicationController
   # GET /pays
   # GET /pays.json
   def index
-    @pays = Pay.all
+    @pays = Pay.includes(:user)
+    @search = Pay.search(params[:q])
+    @pays_days = @search.result
+    respond_to do |format|
+      format.html 
+      format.json { render json: @pays_days }
+    end
   end
 
   # GET /pays/1
@@ -28,7 +34,7 @@ class PaysController < ApplicationController
 
     respond_to do |format|
       if @pay.save
-        format.html { redirect_to @pay, notice: 'Pay was successfully created.' }
+        format.html { redirect_to pays_path, notice: '保存ができました' }
         format.json { render :show, status: :created, location: @pay }
       else
         format.html { render :new }
@@ -42,7 +48,7 @@ class PaysController < ApplicationController
   def update
     respond_to do |format|
       if @pay.update(pay_params)
-        format.html { redirect_to @pay, notice: 'Pay was successfully updated.' }
+        format.html { redirect_to pays_path, notice: 'Pay was successfully updated.' }
         format.json { render :show, status: :ok, location: @pay }
       else
         format.html { render :edit }
@@ -69,6 +75,6 @@ class PaysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pay_params
-      params.require(:pay).permit(:start_time：datetime)
+      params.require(:pay).permit(:start_time,:price, :memo).merge(user_id: current_user.id)
     end
 end

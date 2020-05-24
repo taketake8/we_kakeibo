@@ -1,0 +1,51 @@
+.pay-show{
+  width: 100%;
+  padding: 40px;
+  h1{
+    font-size: 40px;
+  }
+  &__show-pay-name{
+    font-size: 25px;
+  }
+  &__show-pay-contents{
+    border-bottom: 1px solid  rgb(221, 221, 221);
+    font-size: 30px;
+    text-align: center;
+  }
+  &__show-pay-memo{
+    @include memo;
+    p{
+      word-break: break-all;
+    }
+  }
+  &__link-show-pay{
+    padding: 20px;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    &__pay-edit{
+      width: 45%;
+      background-color: #6927FF	;
+      border-radius: 50px;
+      a{
+        line-height: 60px;
+        display: block;
+        color: black;
+        letter-spacing: 10px;
+      }
+    }
+    &__pay-delete{
+      width: 45%;
+      background-color: #FF1A6F	;
+      border-radius: 50px;
+    }
+    a{
+      line-height: 60px;
+      display: block;
+      color: #fff;
+      letter-spacing: 10px;
+    }
+  }
+}

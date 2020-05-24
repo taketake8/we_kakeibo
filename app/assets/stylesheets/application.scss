@@ -1,2 +1,13 @@
 @import "reset";
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "mixin/mixin";
 @import "modules/_pays";
+@import "modules/_pays-new";
+@import "modules/_pays-show";
+@import "modules/_devise";

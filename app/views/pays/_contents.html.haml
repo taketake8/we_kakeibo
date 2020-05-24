@@ -1,6 +1,33 @@
 .contents
   .contents__calendars
-    = month_calendar events: @pays do |date, pay|
+    = month_calendar events: @pays do |date, pays|
       = date.day
-.side-bar
-  
+      - array = []
+      - pays.each do |pay|
+        - if pay.user_id == current_user.id
+          - array << pay.price
+      .contents__calendars__sum-pay
+        - if array.sum < 0
+          = array.sum
+  .contents__side-bar
+    .contents__side-bar__side-contents
+      %h1 1日の家計簿
+      = search_form_for @search do |f| 
+        .contents__side-bar__side-contents__search-name
+          = f.label :作成日
+        .contents__side-bar__side-contents__search-form
+          = f.date_select :start_time_eq,id:"start_time_serch"
+        -# <%= f.date_select :created_at_lteq, include_blank: true %>
+        .contents__side-bar__side-contents__search-btn
+          = f.submit '検索する' ,class:"day_serch_btn"
+    .contents__side-bar__search-results
+      - if params[:q].present?
+        %h2 検索結果
+        .contents__side-bar__search-results__pay-results
+        - @pays_days.each do |pay_day|
+          - if pay_day.user_id == current_user.id
+            .contents__side-bar__search-results__pay-results__pay-result 
+              = link_to  pay_day do
+                = "#{pay_day.start_time.day}日" 
+                = "金額:#{pay_day.price}"
+                %br           

@@ -1,4 +1,17 @@
 .header
   .header__header-menu
+    .header__header-menu__user-name-title
+      - if user_signed_in?
+        = "#{current_user.nickname}の家計簿"
+      - else
+        %h2 わたしの家計簿
     .header__header-menu__user-menu
+      - if user_signed_in? 
+        = link_to "月の支出を見る",  pays_path, class: "header__right--btn" 
+        = link_to "支出を入力",  new_pay_path
     .header__header-menu__login
+      - if user_signed_in? 
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
+      - else 
+        = link_to "ログイン", new_user_session_path, class: "header__right--btn" 
+        = link_to "新規登録", new_user_registration_path, class: "header__right--btn" 

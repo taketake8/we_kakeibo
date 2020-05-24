@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_013949) do
   enable_extension "plpgsql"
 
   create_table "pays", force: :cascade do |t|
-    t.string "start_time：datetime"
+    t.datetime "start_time"
     t.integer "price", null: false
     t.string "memo"
     t.bigint "user_id"
