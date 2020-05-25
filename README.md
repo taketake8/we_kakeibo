@@ -33,3 +33,4 @@ https://wekakeibo.herokuapp.com/
 - csv出力
 - viewの整理
 - 支払いの入力をjsを使用して動的(現金で支払っているような感覚)なものにしたいです。
+- 単体テスト
