@@ -19,9 +19,12 @@
       .pay-field__pay-date
         = form.number_field :price ,max:-1
       .pay-field__pay-name
-        = form.label :メモ 
+        = form.label :カテゴリー
+      .pay-field__pay-date
+        = form.select :pay_category_id,PayCategory.all.map{|o| [o.name, o.id]}
+      .pay-field__pay-name
+        = form.label :メモ
       .pay-field__pay-date-memo
         = form.text_area :memo ,class:"memo",size: "30x10"
-
     .actions
       = form.submit :支出を入力

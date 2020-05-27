@@ -1,0 +1,2 @@
+module PayCategoriesHelper
+end

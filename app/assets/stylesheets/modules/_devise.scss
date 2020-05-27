@@ -1,11 +1,11 @@
 
 .devise-header{
-  height: 10vh;
-  width: 100vw;
+  height: 100px;
+  width: 100%;
   background-color:rgba(33, 99, 221, 0.8);
   &__devise-header-menu{
     padding:10px;
-    line-height: calc(10vh - 20px);
+    line-height: calc(100px - 20px);
     text-align: center;
     a{
       font-size: 40px;
@@ -14,18 +14,16 @@
   }
 }
 
-.devise{  
-  height: calc(100% - 10vh);
+.devise{ 
   background-color: #FFFFCC;
   width: 100%;
   padding: 50px;
   &__contents-devise{
     border-radius: 50px;
     margin:0px auto ;
-    width: 50vw;
+    width: 600px;
     padding: 20px; 
     background-color: #fff; 
-    position: relative;   
     &__content-devise{
       h2{
         margin-bottom: 20px;
@@ -59,28 +57,13 @@
             border: 1px solid #ccc;
             border-radius: 50px;
             margin: 16px 0px 30px 0px;
-            height: 70px;
+            height: 60px;
             font-weight: 500;
             font-size: 25px;
             background-color: rgba(33, 99, 221, 0.8);
           }
         }
       }   
-    } 
-    &__back-btn{
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      height: 30px;
-      line-height: 30px;
-      width: 15%;
-      border-radius: 50px;
-      text-align: center;
-      background-color: #FF570D;
-      a{
-        display: block;
-        color: #fff;
-      }
     }       
   }
 }

@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+pay_categories=PayCategory.create(name:"食費",color:"#6927FF")
+pay_categories=PayCategory.create(name:"交通費",color:"#32EEFF")
+pay_categories=PayCategory.create(name:"交通費",color:"#32EEFF")
