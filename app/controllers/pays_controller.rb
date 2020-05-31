@@ -19,6 +19,7 @@ class PaysController < ApplicationController
   # GET /pays/1
   # GET /pays/1.json
   def show
+    @pay_category = PayCategory.find_by(id: @pay.pay_category_id)
   end
 
   # GET /pays/new
@@ -78,7 +79,7 @@ class PaysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pay_params
-      params.require(:pay).permit(:start_time,:price, :memo).merge(user_id: current_user.id)
+      params.require(:pay).permit(:start_time,:price, :memo,:pay_category_id).merge(user_id: current_user.id)
     end
 
     def current_user_show

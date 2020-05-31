@@ -1,11 +1,10 @@
 
 .header{
-  height: 10vh;
-  width: 100vw;
+  height: 100px;
   background-color:rgba(33, 99, 221, 0.8);
   &__header-menu{
     padding:10px;
-    line-height: calc(10vh - 20px);
+    line-height: calc(100px - 20px);
     display: flex;
     justify-content: space-between;
     &__user-name-title{
@@ -23,11 +22,10 @@
       font-size: 20px;
       color: #fff;
     }
-
   }
 }
 .contents{
-  height: calc(100% - 10vh);
+  height: calc(100% - 100px);
   width: 100%;
   display: flex;
   background-color: #FFFFCC;
@@ -86,7 +84,7 @@
       }
 
       .day {
-        height: 15vh;
+        height:75px ;
       }
       .today {
         background: #FFFFC0

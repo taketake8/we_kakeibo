@@ -13,6 +13,14 @@
         .pay-show__show-pay-contents
           = "#{@pay.price}円"
         .pay-show__show-pay-name
+          %p カテゴリー:
+        .pay-show__show-pay-contents
+          - if @pay_category.present?
+            .cc{style:"color:#{@pay_category.color};"}
+              = @pay_category.name
+          - else
+            無し
+        .pay-show__show-pay-name
           %p メモ:
         .pay-show__show-pay-memo
           = simple_format(@pay.memo)

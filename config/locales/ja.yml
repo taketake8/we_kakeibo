@@ -2,7 +2,9 @@
 ja:
   activerecord:
     models:
-    schedule:
+      pay: 支払
+      pay_category: 支払いのカテゴリー
+      
       errors:
         messages:
           record_invalid: 'バリデーションに失敗しました: %{errors}'

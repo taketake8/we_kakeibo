@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :pays
+  has_many :pay_categories
   validates :nickname, :age, presence:true
   validates :nickname,  uniqueness: true
   validates :nickname, length: { maximum: 8 }

@@ -1,11 +1,12 @@
 .pay-show{
-  width: 100%;
   padding: 40px;
   h1{
     font-size: 40px;
   }
   &__show-pay-name{
+    padding: 10px 0;
     font-size: 25px;
+    letter-spacing: 1px;
   }
   &__show-pay-contents{
     border-bottom: 1px solid  rgb(221, 221, 221);
