@@ -17,9 +17,6 @@ class PayCategoriesController < ApplicationController
   end
   
 
-  def show
-    @pay_category=PayCategory.find(params[:id])
-  end
 
   private
     def pay_category_params

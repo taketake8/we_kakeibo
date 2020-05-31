@@ -21,7 +21,7 @@
       .pay-field__pay-name
         = form.label :カテゴリー
       .pay-field__pay-date
-        = form.select :pay_category_id,PayCategory.all.map{|o| [o.name, o.id]if o.user_id.blank?  || o.user_id == current_user.id  }.compact
+        = form.select :pay_category_id,PayCategory.all.map{|o| [o.name, o.id]if o.user_id.blank?  || o.user_id == current_user.id  }.compact,include_blank:true
       .pay-field__pay-name
         = form.label :メモ
       .pay-field__pay-date-memo

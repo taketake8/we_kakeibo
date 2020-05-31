@@ -1,4 +1,4 @@
 class PayCategory < ApplicationRecord
   belongs_to :user, optional: true
-  belongs_to  :pay, optional: true
+  has_many :pays,dependent: :nullify
 end

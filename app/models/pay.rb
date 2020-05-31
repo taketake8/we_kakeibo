@@ -1,6 +1,6 @@
 class Pay < ApplicationRecord
   belongs_to :user
-  has_many :pay_category
+  belongs_to :pay_category, optional: true
   validates :price, presence:true
   validates :price, numericality: { greater_than: -1000000000, less_than: 0 }   
 
