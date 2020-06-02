@@ -1,28 +1,35 @@
+= render "pays/header"
+.pay-categories
+  .pay-categories__contents-pay-categories
+    .pay-categories__contents-pay-categories__content-pay-categories
+      %h2 カテゴリー
+      .pay-categories-form
+        = form_with(model: @pay_category, local: true) do |form|
+          - if @pay_category.errors.any?
+            #error_explanation
+              %h2
+                = pluralize(@pay_category.errors.count, "エラー")
+                のため保存ができません:
+              %ul
+                - @pay_category.errors.full_messages.each do |message|
+                  %li= message
+      
+          .pay-categories-field
+            .pay-categories-field__pay-categories-name
+              = form.label :追加するカテゴリーの名前
+            .pay-categories-field__pay-categories-date
+              = form.text_field:name 
+          .pay-categories-actions
+            = form.submit :支出を入力
+      .pay-categories-menus
+        .pay-categories-menus__pay-categories-menu
+          - @pay_categories.each do |pay_category|
+            - if  pay_category.user_id.blank?  || pay_category.user_id == current_user.id 
+              .cc{style:"color:#{pay_category.color};"}
+                =pay_category.name
+                -if pay_category.user_id == current_user.id
+                  = link_to '削除', pay_category_path(pay_category), method: :delete 
 
-- @pay_categories.each do |pay_category|
-  - if  pay_category.user_id.blank?  || pay_category.user_id == current_user.id 
-    .cc{style:"color:#{pay_category.color};"}
-      =pay_category.name
-      -if pay_category.user_id == current_user.id
-        = link_to '削除', pay_category_path(pay_category), method: :delete 
 
-.pay-form
-  = form_with(model: @pay_category, local: true) do |form|
-    - if @pay_category.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@pay_category.errors.count, "エラー")
-          のため保存ができません:
-        %ul
-          - @pay_category.errors.full_messages.each do |message|
-            %li= message
- 
-    .pay-field
-      .pay-field__pay-name
-        = form.label :name
-      .pay-field__pay-date-memo
-        = form.text_field:name ,class:"memo",size: "30x10"
-    .actions
-      = form.submit :支出を入力
 
   
