@@ -2,7 +2,7 @@ class PayCategoriesController < ApplicationController
   before_action :set_pay_category, only: [:show, :edit, :update, :destroy]
 
   def index 
-    @pay_categories=PayCategory.all.order(id: "DESC")
+    @pay_categories=PayCategory.all.page(params[:page]).per(9).order(id: "DESC")
     @pay_category = PayCategory.new
 
   end
@@ -15,8 +15,6 @@ class PayCategoriesController < ApplicationController
   def destroy
     @pay_category.destroy
   end
-  
-
 
   private
     def pay_category_params
