@@ -2,14 +2,23 @@ class PayCategoriesController < ApplicationController
   before_action :set_pay_category, only: [:show, :edit, :update, :destroy]
 
   def index 
-    @pay_categories=PayCategory.all.page(params[:page]).per(9).order(id: "DESC")
+    @pay_categories=PayCategory.all
+    @pay_categories=PayCategory.where(user_id: current_user.id).or(PayCategory.where(user_id: nil)).page(params[:page]).per(9).order(id: "ASC")
     @pay_category = PayCategory.new
-
   end
 
   def create
     @pay_category = PayCategory.new(pay_category_params)
-    @pay_category.save
+    respond_to do |format|
+      if  @pay_category.save 
+        format.html { redirect_to pay_categories_path, notice: '保存ができました' }
+        format.json { render :index, status: :created, location: @pay_category }
+      else
+        @pay_categories=PayCategory.all.page(params[:page]).per(9).order(id: "DESC")
+        format.html { render :index }
+        format.json { render json: @pay_category.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
