@@ -3,7 +3,7 @@ class PayCategoriesController < ApplicationController
 
   def index 
     @pay_categories=PayCategory.all
-    @pay_categories=PayCategory.where(user_id: current_user.id).or(PayCategory.where(user_id: nil)).page(params[:page]).per(9).order(id: "ASC")
+    @pay_categories=PayCategory.where(user_id: current_user.id).or(PayCategory.where(user_id: nil)).page(params[:page]).per(9).order(id: "DESC")
     @pay_category = PayCategory.new
   end
 
@@ -23,6 +23,10 @@ class PayCategoriesController < ApplicationController
 
   def destroy
     @pay_category.destroy
+    respond_to do |format|
+      format.html { redirect_to pay_categories_path, notice: '削除しました' }
+      format.json { head :no_content }
+    end
   end
 
   private

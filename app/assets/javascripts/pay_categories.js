@@ -6,15 +6,16 @@ $(function () {
                   ${pay_category.name}
                 </div>
               </div>`
+    return html;  
   }
 
-  $(".pay-category-form").on("submit", function (e) {
+  $("#pay-category-form").on("submit", function (e) {
     e.preventDefault()
-    console.log(this);
+    console.log(this)
     let formData = new FormData(this);
     let url = $(this).attr("action")
     $.ajax({
-      url: url,
+      url:  "/pay_categories.js",
       type: "POST",
       data: formData,
       dataType: 'json',
@@ -26,7 +27,6 @@ $(function () {
       $('.pay-categories-menus').append(html);
       $('form')[0].reset();
       $('.form__submit').prop("disabled", false);
-      $('.pay-categories-menus').animate({ scrollTop: $('.messages_box')[0].scrollHeight });
 
     })
     .fail(function () {

@@ -1,6 +1,6 @@
 .pay-categories-menus__pay-categories-menu
   - if  pay_category.user_id.blank?  || pay_category.user_id == current_user.id 
-    .cc{style:"color:#{pay_category.color};"}
+    .pay-category-color{style:"color:#{pay_category.color};"}
       =pay_category.name
       -if pay_category.user_id == current_user.id
-        = link_to '削除', pay_category_path(pay_category), method: :delete 
+        = link_to '削除', pay_category_path(pay_category), method: :delete ,calss:".pay-category-delete", remote: true
