@@ -2,10 +2,10 @@
 $(function () {
   function buildHTML(message) {
     let html = `<div class="pay-categories-menus__pay-categories-menu">
-                <div class="pay-category-color" style="color:${pay_category.color}">
-                  ${pay_category.name}
-                </div>
-              </div>`
+                  <div class="pay-category-color" style="color:${pay_category.color}">
+                    ${pay_category.name}
+                  </div>
+                </div>`
     return html;  
   }
 
