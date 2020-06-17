@@ -10,7 +10,11 @@ ja:
     models:
       pay: 支払
       pay_category: 支払いのカテゴリー
-      
+    attributes:
+      pay:
+        start_time: "日付"
+        price: "金額"
+        memo: "メモ"
       errors:
         messages:
           record_invalid: 'バリデーションに失敗しました: %{errors}'
