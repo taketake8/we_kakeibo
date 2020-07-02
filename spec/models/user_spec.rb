@@ -3,12 +3,12 @@ describe User do
   describe '#create' do
     context 'ユーザの新規登録ができる場合' do
       it "nickname,age,email,passwardがあると保存ができる" do
-        user = create(:user ) 
+        user = build(:user ) 
         expect(user).to be_valid
       end
 
-      it  "nicknameが８文字なら保存できる"do
-        user = create(:user, nickname: "a" * 8 )
+      it  "nicknameが８文字以内なら保存できる"do
+        user = build(:user, nickname: "a" * 8 )
         expect(user).to be_valid 
       end
 
@@ -52,7 +52,7 @@ describe User do
       end
 
       it " 同じemailがすでに保存している時は保存できないこと" do
-        user = build(:user)
+        user = build(:user, email: "kkk@gmail.com")
         user.save
         user_two = build(:user, email: "kkk@gmail.com")
         user_two.valid?
